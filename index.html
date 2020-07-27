@@ -12,7 +12,7 @@
     <meta property="og:site_name" content="files">
     <link rel="canonical" href="https://www.longshilin.com/files/">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" href="./favicon.png" type="image/png" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" />
     <link rel="manifest" href="./manifest.json">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
     <link type="application/opensearchdescription+xml" rel="search" href="./search.xml"/>
@@ -57,10 +57,11 @@
           const filePath = file.path;
           const fileName = filePath.toLowerCase().replace(/-/g, '');
           const isMarkdown = (/.md$/).test(filePath);
+		  const isNotIndex = filePath !== 'index.html';
           const isNotLicense = filePath !== 'LICENSE.md';
           const isInFilter = filter.split(' ')
             .every((token) => fileName.indexOf(token.toLowerCase()) !== -1)
-          return isNotLicense && isInFilter;
+          return isNotIndex && isNotLicense && isInFilter;
         }
       }
       // Match by closest to start of word then earliest word
