@@ -42,7 +42,7 @@
   <div class="container-lg px-3 my-5 markdown-body">
     <h1>
       <a href="./">files</a>
-      <form id="search_form" autocomplete="off">
+      <form id="search_form" autocomplete="off" style="display: none;">
         <input id="search_input">
       </form>
     </h1>
@@ -144,6 +144,8 @@ passwordButton.addEventListener('click', () => {
     isPasswordCorrect = true;
     // Hide the password input section
     document.getElementById('password-section').style.display = 'none';
+    // Show the search form
+    document.getElementById('search_form').style.display = 'block';
     // Show the file list
     document.getElementById('list').style.display = 'block';
   } else {
