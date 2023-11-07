@@ -39,17 +39,22 @@
     </style>
   </head>
   <body>
-    <div class="container-lg px-3 my-5 markdown-body">
-      <h1>
-        <a href="./">files</a>
-        <form id="search_form" autocomplete="off">
-          <input id="search_input">
-        </form>
-      </h1>
-      <ul id="list">
-      </ul>
+  <div class="container-lg px-3 my-5 markdown-body">
+    <h1>
+      <a href="./">files</a>
+      <form id="search_form" autocomplete="off">
+        <input id="search_input">
+      </form>
+    </h1>
+    <!-- Add a password input field and button -->
+    <div id="password-section">
+      <input id="password_input" type="password" placeholder="Enter the password">
+      <button id="password_button">Submit</button>
     </div>
-    <script>
+    <ul id="list">
+    </ul>
+  </div>
+  <script>
       // Filter files by search term match and clean out non recipe files
       const filterFiles = (filter) => {
         filter = filter.toLowerCase()
@@ -131,6 +136,18 @@
       if (navigator.serviceWorker && !navigator.serviceWorker.controller) {
         navigator.serviceWorker.register('./serviceworker.js');
       }
-    </script>
-  <body>
+      // Add an event listener for the password button
+      const passwordButton = document.getElementById('password_button');
+      passwordButton.addEventListener('click', () => {
+      const enteredPassword = document.getElementById('password_input').value;
+      if (enteredPassword === 'longsl123') {
+        isPasswordCorrect = true;
+        // Hide the password input section
+        document.getElementById('password-section').style.display = 'none';
+      } else {
+        alert('Incorrect password. Please try again.');
+      }
+    });
+  </script>
+</body>
 </html>
