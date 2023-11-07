@@ -51,7 +51,7 @@
       <input id="password_input" type="password" placeholder="Enter the password">
       <button id="password_button">Submit</button>
     </div>
-    <ul id="list">
+    <ul id="list" style="display: none;">
     </ul>
   </div>
   <script>
@@ -137,17 +137,20 @@
         navigator.serviceWorker.register('./serviceworker.js');
       }
       // Add an event listener for the password button
-      const passwordButton = document.getElementById('password_button');
-      passwordButton.addEventListener('click', () => {
-      const enteredPassword = document.getElementById('password_input').value;
-      if (enteredPassword === 'longsl123') {
-        isPasswordCorrect = true;
-        // Hide the password input section
-        document.getElementById('password-section').style.display = 'none';
-      } else {
-        alert('Incorrect password. Please try again.');
-      }
-    });
+const passwordButton = document.getElementById('password_button');
+passwordButton.addEventListener('click', () => {
+  const enteredPassword = document.getElementById('password_input').value;
+  if (enteredPassword === 'longsl123') {
+    isPasswordCorrect = true;
+    // Hide the password input section
+    document.getElementById('password-section').style.display = 'none';
+    // Show the file list
+    document.getElementById('list').style.display = 'block';
+  } else {
+    alert('Incorrect password. Please try again.');
+  }
+});
+
   </script>
 </body>
 </html>
