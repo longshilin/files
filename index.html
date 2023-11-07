@@ -36,6 +36,24 @@
         width: 100%;
         flex: 1 1;
       }
+     .password-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      }
+     .password-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+     }
+     .password-button:hover {
+      background-color: #45a049;
+     }
     </style>
   </head>
   <body>
@@ -48,11 +66,10 @@
     </h1>
     <!-- Add a password input field and button -->
     <div id="password-section">
-      <input id="password_input" type="password" placeholder="Enter the password">
-      <button id="password_button">Submit</button>
+  	<input id="password_input" type="password" placeholder="Enter the password" class="password-input">
+  	<button id="password_button" class="password-button">Submit</button>
     </div>
-    <ul id="list" style="display: none;">
-    </ul>
+    <ul id="list" style="display: none;"></ul>
   </div>
   <script>
       // Filter files by search term match and clean out non recipe files
